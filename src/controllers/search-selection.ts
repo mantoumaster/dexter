@@ -111,13 +111,7 @@ export class SearchSelectionController {
       return;
     }
 
-    const providerId = this.pendingProviderValue;
-    const displayName = getSearchProviderDisplayName(providerId);
-    this.commitPreference(providerId);
-
-    if (providerId !== 'perplexity') {
-      this.onError(`API key saved. Restart Dexter to use ${displayName}.`);
-    }
+    this.commitPreference(this.pendingProviderValue);
   }
 
   private commitPreference(providerId: SearchProviderId) {
